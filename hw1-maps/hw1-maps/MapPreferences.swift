@@ -8,6 +8,9 @@
 
 import UIKit
 
-class MapPreferences: NSObject {
-
+class MapPreferences {
+    static func initializeDefaults() {
+        let defaultsDictionary: [String: AnyObject] = ["mapType": 2 as AnyObject]
+        UserDefaults.standard.register(defaults: defaultsDictionary)
+    }
 }

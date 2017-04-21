@@ -26,9 +26,10 @@ class ViewController: UIViewController {
             break
         }
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let mapTypeIndex = UserDefaults.standard.integer(forKey: "mapType")
+        debugPrint(mapTypeIndex)
     }
 
     override func didReceiveMemoryWarning() {
