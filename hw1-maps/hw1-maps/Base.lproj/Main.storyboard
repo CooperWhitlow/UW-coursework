@@ -34,6 +34,9 @@
                                     <segment title="Hybrid"/>
                                     <segment title="Satelitte"/>
                                 </segments>
+                                <connections>
+                                    <action selector="updateMapType:" destination="BYZ-38-t0r" eventType="valueChanged" id="A64-fh-Gt8"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

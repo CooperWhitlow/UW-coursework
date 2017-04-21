@@ -14,6 +14,7 @@
 		1E2512FA1EAAB38E00DEF523 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E2512F81EAAB38E00DEF523 /* LaunchScreen.storyboard */; };
 		1E2513051EAAB38E00DEF523 /* hw1_mapsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2513041EAAB38E00DEF523 /* hw1_mapsTests.swift */; };
 		1E2513101EAAB38E00DEF523 /* hw1_mapsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E25130F1EAAB38E00DEF523 /* hw1_mapsUITests.swift */; };
+		1E25131E1EAAC42200DEF523 /* MapPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E25131D1EAAC42200DEF523 /* MapPreferences.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		1E25130B1EAAB38E00DEF523 /* hw1-mapsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "hw1-mapsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E25130F1EAAB38E00DEF523 /* hw1_mapsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hw1_mapsUITests.swift; sourceTree = "<group>"; };
 		1E2513111EAAB38E00DEF523 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E25131D1EAAC42200DEF523 /* MapPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPreferences.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				1E2512EF1EAAB38E00DEF523 /* AppDelegate.swift */,
 				1E2512F11EAAB38E00DEF523 /* ViewController.swift */,
 				1E2512F31EAAB38E00DEF523 /* Main.storyboard */,
+				1E25131D1EAAC42200DEF523 /* MapPreferences.swift */,
 				1E2512F61EAAB38E00DEF523 /* Assets.xcassets */,
 				1E2512F81EAAB38E00DEF523 /* LaunchScreen.storyboard */,
 				1E2512FB1EAAB38E00DEF523 /* Info.plist */,
@@ -260,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E25131E1EAAC42200DEF523 /* MapPreferences.swift in Sources */,
 				1E2512F21EAAB38E00DEF523 /* ViewController.swift in Sources */,
 				1E2512F01EAAB38E00DEF523 /* AppDelegate.swift in Sources */,
 			);

@@ -14,6 +14,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var mapSegmentedControl: UISegmentedControl!
     
+    @IBAction func updateMapType(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            map.mapType = .standard
+        case 1:
+            map.mapType = .hybrid
+        case 2:
+            map.mapType = .satellite
+        default:
+            break
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
