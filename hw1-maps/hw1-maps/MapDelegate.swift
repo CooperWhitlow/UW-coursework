@@ -14,19 +14,15 @@ class MapDelegate: NSObject, MKMapViewDelegate {
     
     let geocoder = CLGeocoder()
     let locationManager = CLLocationManager()
-    
-    func mapView(_ map: MKMapView) {
-        
-    }
    
+    // update the saved map position settings every time the user changes them
     func mapView(_ map: MKMapView, regionDidChangeAnimated animated: Bool) {
-        
-        debugPrint(map.region)
         
         UserDefaults.standard.set(map.region.center.latitude, forKey:"defaultLatitude")
         UserDefaults.standard.set(map.region.center.longitude, forKey:"defaultLongitude")
         UserDefaults.standard.set(map.region.span.latitudeDelta, forKey:"defaultLatDelta")
         UserDefaults.standard.set(map.region.span.longitudeDelta, forKey:"defaultLongDelta")
+
     }
     
     func mapViewWillStartLocatingUser(_ mapView: MKMapView) {
