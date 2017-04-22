@@ -10,7 +10,7 @@ import UIKit
 
 class MapPreferences {
     static func initializeDefaults() {
-        let defaultsDictionary: [String: AnyObject] = ["mapType": 2 as AnyObject]
+        let defaultsDictionary: [String: AnyObject] = ["mapType": 0 as AnyObject]
         UserDefaults.standard.register(defaults: defaultsDictionary)
     }
 }

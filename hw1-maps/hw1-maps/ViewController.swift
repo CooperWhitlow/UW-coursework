@@ -10,12 +10,19 @@ import UIKit
 import MapKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var mapSegmentedControl: UISegmentedControl!
     
-    @IBAction func updateMapType(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
+    override func viewDidAppear(_ animated: Bool) {
+        let mapIndex = UserDefaults.standard.integer(forKey: "mapType")
+        debugPrint(mapIndex)
+        updateMapType(index: mapIndex)
+        mapSegmentedControl.selectedSegmentIndex = mapIndex
+    }
+    
+    func updateMapType(index: Int) {
+        switch index {
         case 0:
             map.mapType = .standard
         case 1:
@@ -23,20 +30,13 @@ class ViewController: UIViewController {
         case 2:
             map.mapType = .satellite
         default:
-            break
+            abort()
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        let mapTypeIndex = UserDefaults.standard.integer(forKey: "mapType")
-        debugPrint(mapTypeIndex)
+    @IBAction func updateSegmentIndex(_ sender: UISegmentedControl) {
+        updateMapType(index: sender.selectedSegmentIndex)
+        UserDefaults.standard.set(sender.selectedSegmentIndex, forKey:"mapType")
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 

@@ -35,7 +35,7 @@
                                     <segment title="Satelitte"/>
                                 </segments>
                                 <connections>
-                                    <action selector="updateMapType:" destination="BYZ-38-t0r" eventType="valueChanged" id="A64-fh-Gt8"/>
+                                    <action selector="updateSegmentIndex:" destination="BYZ-38-t0r" eventType="valueChanged" id="9be-on-5zf"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>
