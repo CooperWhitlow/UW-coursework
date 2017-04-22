@@ -12,7 +12,6 @@ import CoreLocation
 
 class MapDelegate: NSObject, MKMapViewDelegate {
     
-    let geocoder = CLGeocoder()
     let locationManager = CLLocationManager()
    
     // update the saved map position settings every time the user changes them
