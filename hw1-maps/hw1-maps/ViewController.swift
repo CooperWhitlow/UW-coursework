@@ -15,10 +15,22 @@ class ViewController: UIViewController {
     @IBOutlet weak var mapSegmentedControl: UISegmentedControl!
     
     override func viewDidAppear(_ animated: Bool) {
+        
         let mapIndex = UserDefaults.standard.integer(forKey: "mapType")
-        debugPrint(mapIndex)
+        let latitude = CLLocationDegrees(UserDefaults.standard.integer(forKey: "defaultLatitude"))
+        let longitude = CLLocationDegrees(UserDefaults.standard.integer(forKey: "defaultLongitude"))
+        let latDelta = CLLocationDegrees(UserDefaults.standard.integer(forKey: "defaultLatDelta"))
+        let longDelta = CLLocationDegrees(UserDefaults.standard.integer(forKey: "defaultLongDelta"))
+        
+        let coordinates = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        let span = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: longDelta)
+        let region = MKCoordinateRegion(center: coordinates, span: span)
+                
+        
+        map.setRegion(region, animated: true)
         updateMapType(index: mapIndex)
         mapSegmentedControl.selectedSegmentIndex = mapIndex
+        
     }
     
     func updateMapType(index: Int) {
