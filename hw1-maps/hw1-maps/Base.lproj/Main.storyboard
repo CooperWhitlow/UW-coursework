@@ -17,86 +17,101 @@
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="left" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" showsUserLocation="YES" showsBuildings="NO" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JAU-xE-ecV">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" showsUserLocation="YES" showsBuildings="NO" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JAU-xE-ecV">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="482"/>
                                 <connections>
                                     <outlet property="delegate" destination="59Q-5t-eim" id="FdU-Zf-eyV"/>
                                 </connections>
                             </mapView>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fvd-YL-bi6">
-                                <rect key="frame" x="9" y="595" width="343" height="70"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="YcR-Z0-dNf">
+                                <rect key="frame" x="8" y="569" width="343" height="130"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="XK2-5z-9NN">
-                                        <rect key="frame" x="0.0" y="0.0" width="171.5" height="70"/>
+                                    <segmentedControl opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mHu-J5-MbZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="41"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="D6v-6A-IIc"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="Map"/>
+                                            <segment title="Hybrid"/>
+                                            <segment title="Satelitte"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="updateSegmentIndex:" destination="BYZ-38-t0r" eventType="valueChanged" id="9be-on-5zf"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="fvd-YL-bi6">
+                                        <rect key="frame" x="0.0" y="46" width="343" height="84"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydG-ek-hRr">
-                                                <rect key="frame" x="29.5" y="0.0" width="112.5" height="28"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <switch opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="esN-1w-sO9">
-                                                <rect key="frame" x="61.5" y="28" width="51" height="42"/>
-                                                <connections>
-                                                    <action selector="toggleShowsLocation:" destination="BYZ-38-t0r" eventType="valueChanged" id="Xop-e2-fIX"/>
-                                                </connections>
-                                            </switch>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tN9-ck-cTa">
-                                        <rect key="frame" x="171.5" y="0.0" width="171.5" height="70"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Traffic" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRe-2d-K3W">
-                                                <rect key="frame" x="38" y="0.0" width="96" height="28"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <switch opaque="NO" contentMode="center" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u4h-St-9go" userLabel="Traffic Switch">
-                                                <rect key="frame" x="61.5" y="28" width="51" height="42"/>
-                                                <connections>
-                                                    <action selector="toggleShowsTraffic:" destination="BYZ-38-t0r" eventType="valueChanged" id="7DP-SG-BZZ"/>
-                                                </connections>
-                                            </switch>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="XK2-5z-9NN">
+                                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="84"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Location" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydG-ek-hRr">
+                                                        <rect key="frame" x="4" y="0.0" width="106.5" height="42"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="esN-1w-sO9">
+                                                        <rect key="frame" x="32.5" y="42" width="51" height="42"/>
+                                                        <connections>
+                                                            <action selector="toggleShowsLocation:" destination="BYZ-38-t0r" eventType="valueChanged" id="Xop-e2-fIX"/>
+                                                        </connections>
+                                                    </switch>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tN9-ck-cTa">
+                                                <rect key="frame" x="114.5" y="0.0" width="114" height="84"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Traffic" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRe-2d-K3W">
+                                                        <rect key="frame" x="11.5" y="0.0" width="91" height="42"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="center" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u4h-St-9go" userLabel="Traffic Switch">
+                                                        <rect key="frame" x="32.5" y="42" width="51" height="42"/>
+                                                        <connections>
+                                                            <action selector="toggleShowsTraffic:" destination="BYZ-38-t0r" eventType="valueChanged" id="7DP-SG-BZZ"/>
+                                                        </connections>
+                                                    </switch>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1QE-dx-zuu">
+                                                <rect key="frame" x="228.5" y="0.0" width="114.5" height="84"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start BreadCrumbs" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="GHq-S4-XHR">
+                                                        <rect key="frame" x="7.5" y="0.0" width="100" height="42"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="center" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7eA-sQ-wFY">
+                                                        <rect key="frame" x="33" y="42" width="51" height="42"/>
+                                                    </switch>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="Jb7-tR-enL"/>
-                                    <constraint firstItem="tN9-ck-cTa" firstAttribute="width" secondItem="XK2-5z-9NN" secondAttribute="width" id="PwM-cZ-TOw"/>
+                                    <constraint firstAttribute="height" constant="130" id="cZ6-oy-oSA"/>
                                 </constraints>
                             </stackView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mHu-J5-MbZ">
-                                <rect key="frame" x="16" y="525" width="343" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="Ob2-Rv-Fi5"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="Map"/>
-                                    <segment title="Hybrid"/>
-                                    <segment title="Satelitte"/>
-                                </segments>
-                                <connections>
-                                    <action selector="updateSegmentIndex:" destination="BYZ-38-t0r" eventType="valueChanged" id="9be-on-5zf"/>
-                                </connections>
-                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fvd-YL-bi6" secondAttribute="bottom" constant="16" id="6XX-HO-RE5"/>
-                            <constraint firstItem="mHu-J5-MbZ" firstAttribute="top" secondItem="JAU-xE-ecV" secondAttribute="bottom" constant="16" id="9ql-ay-LnN"/>
-                            <constraint firstItem="JAU-xE-ecV" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="JEv-4N-nKf"/>
-                            <constraint firstItem="fvd-YL-bi6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="Sls-Pg-WSP"/>
-                            <constraint firstItem="JAU-xE-ecV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="V6K-7G-UoJ"/>
-                            <constraint firstItem="fvd-YL-bi6" firstAttribute="top" secondItem="mHu-J5-MbZ" secondAttribute="bottom" constant="16" id="Yrh-Rv-zJi"/>
-                            <constraint firstItem="mHu-J5-MbZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="ZcR-kP-ay6"/>
-                            <constraint firstAttribute="trailing" secondItem="fvd-YL-bi6" secondAttribute="trailing" constant="16" id="f3X-oA-2hh"/>
-                            <constraint firstAttribute="trailing" secondItem="JAU-xE-ecV" secondAttribute="trailing" id="hSs-Br-PI6"/>
-                            <constraint firstAttribute="trailing" secondItem="mHu-J5-MbZ" secondAttribute="trailing" constant="16" id="yKT-Zf-396"/>
+                            <constraint firstAttribute="trailing" secondItem="JAU-xE-ecV" secondAttribute="trailing" id="8I8-b9-F0m"/>
+                            <constraint firstItem="JAU-xE-ecV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="HZd-U6-7tc"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="YcR-Z0-dNf" secondAttribute="bottom" constant="16" id="MqY-v8-Kaf"/>
+                            <constraint firstAttribute="trailing" secondItem="YcR-Z0-dNf" secondAttribute="trailing" constant="16" id="Qtv-SO-O8k"/>
+                            <constraint firstItem="JAU-xE-ecV" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="RGg-hz-4HS"/>
+                            <constraint firstItem="YcR-Z0-dNf" firstAttribute="top" secondItem="JAU-xE-ecV" secondAttribute="bottom" constant="16" id="gtX-UD-Erj"/>
+                            <constraint firstItem="YcR-Z0-dNf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="xfq-Fu-9TI"/>
                         </constraints>
                     </view>
                     <connections>
