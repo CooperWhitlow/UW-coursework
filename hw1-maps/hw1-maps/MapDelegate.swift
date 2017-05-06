@@ -10,10 +10,16 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapDelegate: NSObject, MKMapViewDelegate {
+class MapDelegate: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
-   
+    var pinnedPoints: [PinPoint] = []
+    
+    func startLocationLogging () {
+        locationManager.delegate = self
+        locationManager.startUpdatingLocation()
+    }
+    
     // update the saved map position settings every time the user changes them
     func mapView(_ map: MKMapView, regionDidChangeAnimated animated: Bool) {
         
@@ -25,11 +31,8 @@ class MapDelegate: NSObject, MKMapViewDelegate {
     }
     
     func mapViewWillStartLocatingUser(_ mapView: MKMapView) {
-        
         if CLLocationManager.authorizationStatus() == .notDetermined {
             self.locationManager.requestWhenInUseAuthorization()
-            self.locationManager.startUpdatingLocation()
-            
         }
     }
     

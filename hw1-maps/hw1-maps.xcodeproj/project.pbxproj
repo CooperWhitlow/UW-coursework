@@ -17,6 +17,7 @@
 		1E25131E1EAAC42200DEF523 /* MapPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E25131D1EAAC42200DEF523 /* MapPreferences.swift */; };
 		1E2513201EAB256F00DEF523 /* MapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E25131F1EAB256F00DEF523 /* MapDelegate.swift */; };
 		1E2513231EAB98DF00DEF523 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E2513221EAB98DF00DEF523 /* CoreLocation.framework */; };
+		1EA905D91EAE1CD80079FDBE /* PinPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA905D81EAE1CD80079FDBE /* PinPoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		1E25131D1EAAC42200DEF523 /* MapPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPreferences.swift; sourceTree = "<group>"; };
 		1E25131F1EAB256F00DEF523 /* MapDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDelegate.swift; sourceTree = "<group>"; };
 		1E2513221EAB98DF00DEF523 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1EA905D81EAE1CD80079FDBE /* PinPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinPoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,10 +108,11 @@
 			isa = PBXGroup;
 			children = (
 				1E2512EF1EAAB38E00DEF523 /* AppDelegate.swift */,
-				1E2512F11EAAB38E00DEF523 /* ViewController.swift */,
 				1E2512F31EAAB38E00DEF523 /* Main.storyboard */,
+				1E2512F11EAAB38E00DEF523 /* ViewController.swift */,
 				1E25131D1EAAC42200DEF523 /* MapPreferences.swift */,
 				1E25131F1EAB256F00DEF523 /* MapDelegate.swift */,
+				1EA905D81EAE1CD80079FDBE /* PinPoint.swift */,
 				1E2512F61EAAB38E00DEF523 /* Assets.xcassets */,
 				1E2512F81EAAB38E00DEF523 /* LaunchScreen.storyboard */,
 				1E2512FB1EAAB38E00DEF523 /* Info.plist */,
@@ -279,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E25131E1EAAC42200DEF523 /* MapPreferences.swift in Sources */,
+				1EA905D91EAE1CD80079FDBE /* PinPoint.swift in Sources */,
 				1E2513201EAB256F00DEF523 /* MapDelegate.swift in Sources */,
 				1E2512F21EAAB38E00DEF523 /* ViewController.swift in Sources */,
 				1E2512F01EAAB38E00DEF523 /* AppDelegate.swift in Sources */,
@@ -528,6 +532,7 @@
 				1E2513161EAAB38E00DEF523 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1E2513171EAAB38E00DEF523 /* Build configuration list for PBXNativeTarget "hw1-mapsTests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +541,7 @@
 				1E2513191EAAB38E00DEF523 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1E25131A1EAAB38E00DEF523 /* Build configuration list for PBXNativeTarget "hw1-mapsUITests" */ = {
 			isa = XCConfigurationList;
@@ -544,6 +550,7 @@
 				1E25131C1EAAB38E00DEF523 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
