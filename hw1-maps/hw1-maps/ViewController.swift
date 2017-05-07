@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var mapSegmentedControl: UISegmentedControl!
     @IBOutlet weak var locationSwitch: UISwitch!
     @IBOutlet weak var trafficSwitch: UISwitch!
+    @IBOutlet weak var breadcrumbSwitch: UISwitch!
     
     override func viewDidAppear(_ animated: Bool) {
         //ReferencePoint(latitude: 0, longitude: 0, title:"test at 0, 0")
@@ -31,6 +32,7 @@ class ViewController: UIViewController {
         let longDelta = CLLocationDegrees(UserDefaults.standard.integer(forKey: "defaultLongDelta"))
         let trafficSwitchSetting = UserDefaults.standard.bool(forKey: "defaultTrafficSetting")
         let locationDisplaySwitchSetting = UserDefaults.standard.bool(forKey: "defaultLocationDisplaySetting")
+        let breadCrumbs = UserDefaults.standard.object(forKey: "savedBreadCrumbs") as? [MKPointAnnotation]
         
         // Define map position for this use
         let coordinates = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
@@ -45,6 +47,7 @@ class ViewController: UIViewController {
         map.setRegion(region, animated: true)
         map.showsTraffic = trafficSwitchSetting
         map.showsUserLocation = locationDisplaySwitchSetting
+        if let breadCrumbs = breadCrumbs { map.addAnnotations(breadCrumbs) }
     }
     
     // method used by the segmented controller to change the map type
@@ -69,7 +72,7 @@ class ViewController: UIViewController {
     
     // toggle location display based on switch action and then save this state in UserDefaults to recall next time the app is opened
     @IBAction func toggleShowsLocation(_ sender: UISwitch) {
-        debugPrint("Changing location display from \(map.showsUserLocation)...")
+        debugPrint("Changing location   from \(map.showsUserLocation)...")
         var currentState = UserDefaults.standard.bool(forKey: "defaultLocationDisplaySetting")
         currentState = !currentState
         UserDefaults.standard.set(currentState, forKey:"defaultLocationDisplaySetting")
@@ -85,6 +88,11 @@ class ViewController: UIViewController {
         map.showsTraffic = currentState
         debugPrint("...to \(map.showsTraffic)")
         UserDefaults.standard.set(currentState, forKey:"defaultTrafficSwitchSetting")
+    }
+    
+    //toggle location pin drops every 2 seconds.
+    @IBAction func toggleBreadcrumbs(_ sender: UISwitch) {
+        
     }
     
 }

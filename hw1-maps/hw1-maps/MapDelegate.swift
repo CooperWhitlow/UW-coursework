@@ -12,11 +12,14 @@ import CoreLocation
 
 class MapDelegate: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
     
+    @IBOutlet weak var map: MKMapView!
+    
     let locationManager = CLLocationManager()
-    var pinnedPoints: [PinPoint] = []
+    var breadCrumbs: [MKPointAnnotation] = []
     
     func startLocationLogging () {
         locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
     }
     
@@ -36,5 +39,21 @@ class MapDelegate: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
         }
     }
     
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        let newLocationPin = MKPointAnnotation()
+        let newUserLocation: CLLocation = locations[0]
+        
+        let newUserLatitude = newUserLocation.coordinate.latitude
+        let newUserLongitude = newUserLocation.coordinate.longitude
+        let newUserCenter = CLLocationCoordinate2D(latitude: newUserLatitude, longitude: newUserLongitude)
+        
+        newLocationPin.coordinate = newUserCenter
+        
+        map.addAnnotation(newLocationPin)
+        breadCrumbs.append(newLocationPin)
+        
+        UserDefaults.standard.set(breadCrumbs, forKey:"savedBreadCrumbs")
+    }
 }
   
