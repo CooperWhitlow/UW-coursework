@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        // Pull settings saved in UserDefualts to restore appearance from user's last use
+        // Pull settings saved in UserDefualts and store in local constants
         let mapIndex = UserDefaults.standard.integer(forKey: "mapType")
         let latitude = CLLocationDegrees(UserDefaults.standard.integer(forKey: "defaultLatitude"))
         let longitude = CLLocationDegrees(UserDefaults.standard.integer(forKey: "defaultLongitude"))
@@ -70,13 +70,13 @@ class ViewController: UIViewController {
         }
     }
     
-    // update the map type based on the segmented controller selection and save this state in UserDefaults to recall next time the app is opened
-    @IBAction func updateSegmentIndex(_ sender: UISegmentedControl) {
+    // update the map type and save state in User Defaults
+        @IBAction func updateSegmentIndex(_ sender: UISegmentedControl) {
         updateMapType(index: sender.selectedSegmentIndex)
         UserDefaults.standard.set(sender.selectedSegmentIndex, forKey:"mapType")
     }
     
-    // toggle location display based on switch action and then save this state in UserDefaults to recall next time the app is opened
+    // toggle location display and save  state in User Defaults
     @IBAction func toggleShowsLocation(_ sender: UISwitch) {
         debugPrint("Changing location   from \(map.showsUserLocation)...")
         let currentState = map.showsUserLocation
@@ -86,8 +86,7 @@ class ViewController: UIViewController {
         debugPrint("...to \(map.showsUserLocation)")
     }
     
-    // toggle traffic overlay based on switch action and then save this state in UserDefaults to recall next time the app is opened
-    
+    // toggle traffic overlay and save state in User Defaults
     @IBAction func toggleShowsTraffic(_ sender: UISwitch) {
         debugPrint("Changing traffic display from \(map.showsTraffic)...")
         let currentState = map.showsTraffic
@@ -97,19 +96,15 @@ class ViewController: UIViewController {
         UserDefaults.standard.set(newState, forKey:"defaultTrafficSetting")
     }
     
-    // toggle location pin drops at distances intervals equaly to LocationManager.distanceFilter
+    // toggle automatic pin drops (at distances interval equal to LocationManager.distanceFilter) and save state in User Defaults
     @IBAction func toggleTrackingButton(_ sender: Any) {
-        if toggleTrackingButton.isSelected {
-            let newState = false
-            toggleTrackingButton.isSelected = newState
-            UserDefaults.standard.set(newState, forKey: "defaultTrackingSetting")
-        } else {
-            let newState = true
-            toggleTrackingButton.isSelected = newState
-            UserDefaults.standard.set(newState, forKey: "defaultTrackingSetting")
-        }
+        let currentState = toggleTrackingButton.isSelected
+        let newState = !currentState
+        toggleTrackingButton.isSelected = newState
+        UserDefaults.standard.set(newState, forKey: "defaultTrackingSetting")
     }
 
+    // Delete all map annotations on button tap
     @IBAction func clearBreadCrumbs(_ sender: UIButton) {
         debugPrint("attemting to clear all breadCrumbs...")
         if let delegate = map.delegate as? MapDelegate {

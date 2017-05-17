@@ -12,7 +12,7 @@ import CoreLocation
 class MapPreferences {
     static func initializeDefaults() {
 
-        // Default map settings. These update with stored values as the user changes them.
+        // Default map settings. These update with stored values as the user interacts with the map.
         let defaultsDictionary: [String: Any] = [
             "mapType": 0 as AnyObject,
             "defaultTrafficSetting": false as AnyObject,

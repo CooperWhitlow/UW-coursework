@@ -17,7 +17,7 @@ class MapDelegate: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
     
     var locationManager = CLLocationManager()
     
-    // update the saved map position settings every time the user changes them
+    // save map position in User Defaults every time the MapView's viewable area changes
     func mapView(_ map: MKMapView, regionDidChangeAnimated animated: Bool) {
         
         let newLatitude = map.region.center.latitude
@@ -38,18 +38,19 @@ class MapDelegate: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
 
     }
     
+    //request location auth a
     func mapViewWillStartLocatingUser(_ mapView: MKMapView) {
        
         if CLLocationManager.authorizationStatus() == .notDetermined {
             locationManager.requestWhenInUseAuthorization()
-        } else {
-            locationManager.delegate = self
-            locationManager.startUpdatingLocation()
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.distanceFilter = 5.0
         }
+        locationManager.delegate = self
+        locationManager.startUpdatingLocation()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.distanceFilter = 5.0
     }
     
+    // method is called every time the user's location changes >= the locationManager.distanceFilter value. If the user has enabled tracking, the method will drop a pin at the current location and add it to an array saved on disk.
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         if toggleTrackingButton.isSelected {
@@ -77,7 +78,7 @@ class MapDelegate: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
             debugPrint("Location changed but tracking is disabled by user")
         }
     }
-    
+
     func breadCrumbsFilePath() -> String {
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let result = urls[urls.count-1]
