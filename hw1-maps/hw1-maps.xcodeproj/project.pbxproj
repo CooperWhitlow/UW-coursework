@@ -17,7 +17,7 @@
 		1E25131E1EAAC42200DEF523 /* MapPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E25131D1EAAC42200DEF523 /* MapPreferences.swift */; };
 		1E2513201EAB256F00DEF523 /* MapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E25131F1EAB256F00DEF523 /* MapDelegate.swift */; };
 		1E2513231EAB98DF00DEF523 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E2513221EAB98DF00DEF523 /* CoreLocation.framework */; };
-		1EA905D91EAE1CD80079FDBE /* PinPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA905D81EAE1CD80079FDBE /* PinPoint.swift */; };
+		1E95875E1EC5434800328C23 /* BreadCrumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E95875D1EC5434800328C23 /* BreadCrumb.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +54,7 @@
 		1E25131D1EAAC42200DEF523 /* MapPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPreferences.swift; sourceTree = "<group>"; };
 		1E25131F1EAB256F00DEF523 /* MapDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDelegate.swift; sourceTree = "<group>"; };
 		1E2513221EAB98DF00DEF523 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		1EA905D81EAE1CD80079FDBE /* PinPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinPoint.swift; sourceTree = "<group>"; };
+		1E95875D1EC5434800328C23 /* BreadCrumb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BreadCrumb.swift; path = ../BreadCrumb.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,15 +107,15 @@
 		1E2512EE1EAAB38E00DEF523 /* hw1-maps */ = {
 			isa = PBXGroup;
 			children = (
-				1E2512EF1EAAB38E00DEF523 /* AppDelegate.swift */,
-				1E2512F31EAAB38E00DEF523 /* Main.storyboard */,
-				1E2512F11EAAB38E00DEF523 /* ViewController.swift */,
-				1E25131D1EAAC42200DEF523 /* MapPreferences.swift */,
-				1E25131F1EAB256F00DEF523 /* MapDelegate.swift */,
-				1EA905D81EAE1CD80079FDBE /* PinPoint.swift */,
-				1E2512F61EAAB38E00DEF523 /* Assets.xcassets */,
-				1E2512F81EAAB38E00DEF523 /* LaunchScreen.storyboard */,
 				1E2512FB1EAAB38E00DEF523 /* Info.plist */,
+				1E2512F81EAAB38E00DEF523 /* LaunchScreen.storyboard */,
+				1E2512F61EAAB38E00DEF523 /* Assets.xcassets */,
+				1E2512F31EAAB38E00DEF523 /* Main.storyboard */,
+				1E2512EF1EAAB38E00DEF523 /* AppDelegate.swift */,
+				1E2512F11EAAB38E00DEF523 /* ViewController.swift */,
+				1E25131F1EAB256F00DEF523 /* MapDelegate.swift */,
+				1E95875D1EC5434800328C23 /* BreadCrumb.swift */,
+				1E25131D1EAAC42200DEF523 /* MapPreferences.swift */,
 			);
 			path = "hw1-maps";
 			sourceTree = "<group>";
@@ -282,8 +282,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E25131E1EAAC42200DEF523 /* MapPreferences.swift in Sources */,
-				1EA905D91EAE1CD80079FDBE /* PinPoint.swift in Sources */,
 				1E2513201EAB256F00DEF523 /* MapDelegate.swift in Sources */,
+				1E95875E1EC5434800328C23 /* BreadCrumb.swift in Sources */,
 				1E2512F21EAAB38E00DEF523 /* ViewController.swift in Sources */,
 				1E2512F01EAAB38E00DEF523 /* AppDelegate.swift in Sources */,
 			);

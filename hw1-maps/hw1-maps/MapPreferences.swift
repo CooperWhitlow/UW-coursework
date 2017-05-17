@@ -13,14 +13,15 @@ class MapPreferences {
     static func initializeDefaults() {
 
         // Default map settings. These update with stored values as the user changes them.
-        let defaultsDictionary: [String: AnyObject] = [
+        let defaultsDictionary: [String: Any] = [
             "mapType": 0 as AnyObject,
             "defaultTrafficSetting": false as AnyObject,
-            "defaultLocationDisplaySetting": false as AnyObject,
-            "defaultLatitude": 0 as AnyObject,
-            "defaultLongitude": 0 as AnyObject,
-            "defaultLatDelta": 100 as AnyObject,
-            "defaultLongDelta": 100 as AnyObject
+            "defaultLocationSetting": false as AnyObject,
+            "defaultTrackingSetting": false as AnyObject,
+            "defaultLatitude": 47.670435 as AnyObject,
+            "defaultLongitude": -122.383108 as AnyObject,
+            "defaultLatDelta": 10.0 as Double,
+            "defaultLongDelta": 10.0 as Double
         ]
         
         UserDefaults.standard.register(defaults: defaultsDictionary)

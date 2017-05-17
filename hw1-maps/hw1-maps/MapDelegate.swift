@@ -12,48 +12,90 @@ import CoreLocation
 
 class MapDelegate: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
     
+    @IBOutlet weak var toggleTrackingButton: UIButton!
     @IBOutlet weak var map: MKMapView!
     
-    let locationManager = CLLocationManager()
-    var breadCrumbs: [MKPointAnnotation] = []
-    
-    func startLocationLogging () {
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.startUpdatingLocation()
-    }
+    var locationManager = CLLocationManager()
     
     // update the saved map position settings every time the user changes them
     func mapView(_ map: MKMapView, regionDidChangeAnimated animated: Bool) {
         
-        UserDefaults.standard.set(map.region.center.latitude, forKey:"defaultLatitude")
-        UserDefaults.standard.set(map.region.center.longitude, forKey:"defaultLongitude")
-        UserDefaults.standard.set(map.region.span.latitudeDelta, forKey:"defaultLatDelta")
-        UserDefaults.standard.set(map.region.span.longitudeDelta, forKey:"defaultLongDelta")
+        let newLatitude = map.region.center.latitude
+        let newLongitude = map.region.center.longitude
+        let newLatDelta = map.region.span.latitudeDelta
+        let newLongDelta = map.region.span.longitudeDelta
+        
+        UserDefaults.standard.set(newLatitude, forKey:"defaultLatitude")
+        UserDefaults.standard.set(newLongitude, forKey:"defaultLongitude")
+        UserDefaults.standard.set(newLatDelta, forKey:"defaultLatDelta")
+        UserDefaults.standard.set(newLongDelta, forKey:"defaultLongDelta")
+        
+        debugPrint("region changed...")
+        debugPrint("latitude \(newLatitude)")
+        debugPrint("longitude: \(newLongitude)")
+        debugPrint("latDelta: \(newLatDelta)")
+        debugPrint("longDelta \(newLongDelta)")
 
     }
     
     func mapViewWillStartLocatingUser(_ mapView: MKMapView) {
+       
         if CLLocationManager.authorizationStatus() == .notDetermined {
-            self.locationManager.requestWhenInUseAuthorization()
+            locationManager.requestWhenInUseAuthorization()
+        } else {
+            locationManager.delegate = self
+            locationManager.startUpdatingLocation()
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.distanceFilter = 5.0
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        let newLocationPin = MKPointAnnotation()
-        let newUserLocation: CLLocation = locations[0]
+        if toggleTrackingButton.isSelected {
         
-        let newUserLatitude = newUserLocation.coordinate.latitude
-        let newUserLongitude = newUserLocation.coordinate.longitude
-        let newUserCenter = CLLocationCoordinate2D(latitude: newUserLatitude, longitude: newUserLongitude)
+            debugPrint("called didUpdateLocations...")
         
-        newLocationPin.coordinate = newUserCenter
+            let newLocationPin = MKPointAnnotation()
+            let newUserLocation: CLLocation = locations[0]
         
-        map.addAnnotation(newLocationPin)
-        breadCrumbs.append(newLocationPin)
-        
-        UserDefaults.standard.set(breadCrumbs, forKey:"savedBreadCrumbs")
+            let newUserLatitude = newUserLocation.coordinate.latitude
+            let newUserLongitude = newUserLocation.coordinate.longitude
+            
+            let newBreadCrumb = BreadCrumb(latitude: newUserLatitude, longitude: newUserLongitude)
+            
+            newLocationPin.coordinate = newBreadCrumb.coordinate
+            map.addAnnotation(newBreadCrumb)
+            debugPrint("Pin dropped at...\(newLocationPin)")
+            
+            var breadCrumbs = fetchBreadCrumbsArray()
+            breadCrumbs.append(newBreadCrumb)
+            debugPrint("total number of pins now at \(breadCrumbs.count)")
+            saveBreadCrumbsArray(breadCrumbsArray: breadCrumbs)
+
+        } else {
+            debugPrint("Location changed but tracking is disabled by user")
+        }
+    }
+    
+    func breadCrumbsFilePath() -> String {
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let result = urls[urls.count-1]
+        let resultURL = result.appendingPathComponent("BreadCrumbs.data")
+        return resultURL.path
+    }
+    
+    func saveBreadCrumbsArray(breadCrumbsArray: [BreadCrumb]) {
+        NSKeyedArchiver.archiveRootObject(breadCrumbsArray, toFile: breadCrumbsFilePath())
+    }
+    
+    func fetchBreadCrumbsArray() -> [BreadCrumb] {
+        let breadCrumbsURLPath = breadCrumbsFilePath()
+        let savedBreadCrumbsArray = NSKeyedUnarchiver.unarchiveObject(withFile: breadCrumbsURLPath)
+        if let breadCrumbs = savedBreadCrumbsArray as? [BreadCrumb] {
+            return breadCrumbs
+        } else {
+            return []
+        }
     }
 }
-  
