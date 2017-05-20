@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1E2512EB1EAAB38E00DEF523"
-               BuildableName = "hw1-maps.app"
-               BlueprintName = "hw1-maps"
-               ReferencedContainer = "container:hw1-maps.xcodeproj">
+               BuildableName = "MapPlay.app"
+               BlueprintName = "MapPlay"
+               ReferencedContainer = "container:MapPlay.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1E2512FF1EAAB38E00DEF523"
-               BuildableName = "hw1-mapsTests.xctest"
-               BlueprintName = "hw1-mapsTests"
-               ReferencedContainer = "container:hw1-maps.xcodeproj">
+               BuildableName = "MapPlayTests.xctest"
+               BlueprintName = "MapPlayTests"
+               ReferencedContainer = "container:MapPlay.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1E25130A1EAAB38E00DEF523"
-               BuildableName = "hw1-mapsUITests.xctest"
-               BlueprintName = "hw1-mapsUITests"
-               ReferencedContainer = "container:hw1-maps.xcodeproj">
+               BuildableName = "MapPlayUITests.xctest"
+               BlueprintName = "MapPlayUITests"
+               ReferencedContainer = "container:MapPlay.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1E2512EB1EAAB38E00DEF523"
-            BuildableName = "hw1-maps.app"
-            BlueprintName = "hw1-maps"
-            ReferencedContainer = "container:hw1-maps.xcodeproj">
+            BuildableName = "MapPlay.app"
+            BlueprintName = "MapPlay"
+            ReferencedContainer = "container:MapPlay.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1E2512EB1EAAB38E00DEF523"
-            BuildableName = "hw1-maps.app"
-            BlueprintName = "hw1-maps"
-            ReferencedContainer = "container:hw1-maps.xcodeproj">
+            BuildableName = "MapPlay.app"
+            BlueprintName = "MapPlay"
+            ReferencedContainer = "container:MapPlay.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -95,9 +95,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1E2512EB1EAAB38E00DEF523"
-            BuildableName = "hw1-maps.app"
-            BlueprintName = "hw1-maps"
-            ReferencedContainer = "container:hw1-maps.xcodeproj">
+            BuildableName = "MapPlay.app"
+            BlueprintName = "MapPlay"
+            ReferencedContainer = "container:MapPlay.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
