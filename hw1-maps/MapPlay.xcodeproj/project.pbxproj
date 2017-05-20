@@ -38,23 +38,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1E2512EC1EAAB38E00DEF523 /* hw1-maps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "hw1-maps.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E2512EC1EAAB38E00DEF523 /* MapPlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapPlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E2512EF1EAAB38E00DEF523 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E2512F11EAAB38E00DEF523 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1E2512F41EAAB38E00DEF523 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1E2512F61EAAB38E00DEF523 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1E2512F91EAAB38E00DEF523 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E2512FB1EAAB38E00DEF523 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1E2513001EAAB38E00DEF523 /* hw1-mapsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "hw1-mapsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E2513001EAAB38E00DEF523 /* MapPlayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapPlayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E2513041EAAB38E00DEF523 /* hw1_mapsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hw1_mapsTests.swift; sourceTree = "<group>"; };
 		1E2513061EAAB38E00DEF523 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1E25130B1EAAB38E00DEF523 /* hw1-mapsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "hw1-mapsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E25130B1EAAB38E00DEF523 /* MapPlayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapPlayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E25130F1EAAB38E00DEF523 /* hw1_mapsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hw1_mapsUITests.swift; sourceTree = "<group>"; };
 		1E2513111EAAB38E00DEF523 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E25131D1EAAC42200DEF523 /* MapPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPreferences.swift; sourceTree = "<group>"; };
 		1E25131F1EAB256F00DEF523 /* MapDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDelegate.swift; sourceTree = "<group>"; };
 		1E2513221EAB98DF00DEF523 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		1E95875D1EC5434800328C23 /* BreadCrumb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BreadCrumb.swift; path = ../BreadCrumb.swift; sourceTree = "<group>"; };
+		1EE1020F1ED0BC22008615A9 /* MapPlay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MapPlay.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +87,7 @@
 		1E2512E31EAAB38E00DEF523 = {
 			isa = PBXGroup;
 			children = (
+				1EE1020F1ED0BC22008615A9 /* MapPlay.entitlements */,
 				1E2512EE1EAAB38E00DEF523 /* hw1-maps */,
 				1E2513031EAAB38E00DEF523 /* hw1-mapsTests */,
 				1E25130E1EAAB38E00DEF523 /* hw1-mapsUITests */,
@@ -97,9 +99,9 @@
 		1E2512ED1EAAB38E00DEF523 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1E2512EC1EAAB38E00DEF523 /* hw1-maps.app */,
-				1E2513001EAAB38E00DEF523 /* hw1-mapsTests.xctest */,
-				1E25130B1EAAB38E00DEF523 /* hw1-mapsUITests.xctest */,
+				1E2512EC1EAAB38E00DEF523 /* MapPlay.app */,
+				1E2513001EAAB38E00DEF523 /* MapPlayTests.xctest */,
+				1E25130B1EAAB38E00DEF523 /* MapPlayUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -149,9 +151,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1E2512EB1EAAB38E00DEF523 /* hw1-maps */ = {
+		1E2512EB1EAAB38E00DEF523 /* MapPlay */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1E2513141EAAB38E00DEF523 /* Build configuration list for PBXNativeTarget "hw1-maps" */;
+			buildConfigurationList = 1E2513141EAAB38E00DEF523 /* Build configuration list for PBXNativeTarget "MapPlay" */;
 			buildPhases = (
 				1E2512E81EAAB38E00DEF523 /* Sources */,
 				1E2512E91EAAB38E00DEF523 /* Frameworks */,
@@ -161,14 +163,14 @@
 			);
 			dependencies = (
 			);
-			name = "hw1-maps";
+			name = MapPlay;
 			productName = "hw1-maps";
-			productReference = 1E2512EC1EAAB38E00DEF523 /* hw1-maps.app */;
+			productReference = 1E2512EC1EAAB38E00DEF523 /* MapPlay.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1E2512FF1EAAB38E00DEF523 /* hw1-mapsTests */ = {
+		1E2512FF1EAAB38E00DEF523 /* MapPlayTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1E2513171EAAB38E00DEF523 /* Build configuration list for PBXNativeTarget "hw1-mapsTests" */;
+			buildConfigurationList = 1E2513171EAAB38E00DEF523 /* Build configuration list for PBXNativeTarget "MapPlayTests" */;
 			buildPhases = (
 				1E2512FC1EAAB38E00DEF523 /* Sources */,
 				1E2512FD1EAAB38E00DEF523 /* Frameworks */,
@@ -179,14 +181,14 @@
 			dependencies = (
 				1E2513021EAAB38E00DEF523 /* PBXTargetDependency */,
 			);
-			name = "hw1-mapsTests";
+			name = MapPlayTests;
 			productName = "hw1-mapsTests";
-			productReference = 1E2513001EAAB38E00DEF523 /* hw1-mapsTests.xctest */;
+			productReference = 1E2513001EAAB38E00DEF523 /* MapPlayTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		1E25130A1EAAB38E00DEF523 /* hw1-mapsUITests */ = {
+		1E25130A1EAAB38E00DEF523 /* MapPlayUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1E25131A1EAAB38E00DEF523 /* Build configuration list for PBXNativeTarget "hw1-mapsUITests" */;
+			buildConfigurationList = 1E25131A1EAAB38E00DEF523 /* Build configuration list for PBXNativeTarget "MapPlayUITests" */;
 			buildPhases = (
 				1E2513071EAAB38E00DEF523 /* Sources */,
 				1E2513081EAAB38E00DEF523 /* Frameworks */,
@@ -197,9 +199,9 @@
 			dependencies = (
 				1E25130D1EAAB38E00DEF523 /* PBXTargetDependency */,
 			);
-			name = "hw1-mapsUITests";
+			name = MapPlayUITests;
 			productName = "hw1-mapsUITests";
-			productReference = 1E25130B1EAAB38E00DEF523 /* hw1-mapsUITests.xctest */;
+			productReference = 1E25130B1EAAB38E00DEF523 /* MapPlayUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -214,8 +216,13 @@
 				TargetAttributes = {
 					1E2512EB1EAAB38E00DEF523 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 78QN399MNP;
+						DevelopmentTeam = Y3WUDUNE33;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					1E2512FF1EAAB38E00DEF523 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -229,7 +236,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1E2512E71EAAB38E00DEF523 /* Build configuration list for PBXProject "hw1-maps" */;
+			buildConfigurationList = 1E2512E71EAAB38E00DEF523 /* Build configuration list for PBXProject "MapPlay" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -242,9 +249,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1E2512EB1EAAB38E00DEF523 /* hw1-maps */,
-				1E2512FF1EAAB38E00DEF523 /* hw1-mapsTests */,
-				1E25130A1EAAB38E00DEF523 /* hw1-mapsUITests */,
+				1E2512EB1EAAB38E00DEF523 /* MapPlay */,
+				1E2512FF1EAAB38E00DEF523 /* MapPlayTests */,
+				1E25130A1EAAB38E00DEF523 /* MapPlayUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -310,12 +317,12 @@
 /* Begin PBXTargetDependency section */
 		1E2513021EAAB38E00DEF523 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1E2512EB1EAAB38E00DEF523 /* hw1-maps */;
+			target = 1E2512EB1EAAB38E00DEF523 /* MapPlay */;
 			targetProxy = 1E2513011EAAB38E00DEF523 /* PBXContainerItemProxy */;
 		};
 		1E25130D1EAAB38E00DEF523 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1E2512EB1EAAB38E00DEF523 /* hw1-maps */;
+			target = 1E2512EB1EAAB38E00DEF523 /* MapPlay */;
 			targetProxy = 1E25130C1EAAB38E00DEF523 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -437,10 +444,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 78QN399MNP;
+				CODE_SIGN_ENTITLEMENTS = MapPlay.entitlements;
+				DEVELOPMENT_TEAM = Y3WUDUNE33;
 				INFOPLIST_FILE = "hw1-maps/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "CW.hw1-maps";
+				PRODUCT_BUNDLE_IDENTIFIER = MapPlay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -450,10 +458,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 78QN399MNP;
+				CODE_SIGN_ENTITLEMENTS = MapPlay.entitlements;
+				DEVELOPMENT_TEAM = Y3WUDUNE33;
 				INFOPLIST_FILE = "hw1-maps/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "CW.hw1-maps";
+				PRODUCT_BUNDLE_IDENTIFIER = MapPlay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -469,7 +478,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "CW.hw1-mapsTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/hw1-maps.app/hw1-maps";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MapPlay.app/MapPlay";
 			};
 			name = Debug;
 		};
@@ -483,7 +492,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "CW.hw1-mapsTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/hw1-maps.app/hw1-maps";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MapPlay.app/MapPlay";
 			};
 			name = Release;
 		};
@@ -516,7 +525,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1E2512E71EAAB38E00DEF523 /* Build configuration list for PBXProject "hw1-maps" */ = {
+		1E2512E71EAAB38E00DEF523 /* Build configuration list for PBXProject "MapPlay" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1E2513121EAAB38E00DEF523 /* Debug */,
@@ -525,7 +534,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1E2513141EAAB38E00DEF523 /* Build configuration list for PBXNativeTarget "hw1-maps" */ = {
+		1E2513141EAAB38E00DEF523 /* Build configuration list for PBXNativeTarget "MapPlay" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1E2513151EAAB38E00DEF523 /* Debug */,
@@ -534,7 +543,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1E2513171EAAB38E00DEF523 /* Build configuration list for PBXNativeTarget "hw1-mapsTests" */ = {
+		1E2513171EAAB38E00DEF523 /* Build configuration list for PBXNativeTarget "MapPlayTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1E2513181EAAB38E00DEF523 /* Debug */,
@@ -543,7 +552,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1E25131A1EAAB38E00DEF523 /* Build configuration list for PBXNativeTarget "hw1-mapsUITests" */ = {
+		1E25131A1EAAB38E00DEF523 /* Build configuration list for PBXNativeTarget "MapPlayUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1E25131B1EAAB38E00DEF523 /* Debug */,

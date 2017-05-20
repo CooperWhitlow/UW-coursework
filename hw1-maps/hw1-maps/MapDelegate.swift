@@ -66,7 +66,8 @@ class MapDelegate: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
             let newBreadCrumb = BreadCrumb(latitude: newUserLatitude, longitude: newUserLongitude)
             
             newLocationPin.coordinate = newBreadCrumb.coordinate
-            map.addAnnotation(newBreadCrumb)
+            //map.addAnnotation(newBreadCrumb)
+             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateMap"), object: nil, userInfo: ["latitude" : newUserLatitude, "longitude" : newUserLongitude])
             debugPrint("Pin dropped at...\(newLocationPin)")
             
             var breadCrumbs = fetchBreadCrumbsArray()

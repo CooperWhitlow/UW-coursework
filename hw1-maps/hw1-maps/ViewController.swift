@@ -18,6 +18,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var trafficSwitch: UISwitch!
     @IBOutlet weak var toggleTrackingButton: UIButton!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "updateMap"), object: nil, queue: OperationQueue.main, using: { (notification) in
+            // update map view
+            let latitude = notification.userInfo?["latitude"] as? Double ?? 0.0
+            let longitude = notification.userInfo?["longitude"] as? Double ?? 0.0
+            let newBreadCrumb = BreadCrumb(latitude: latitude, longitude: longitude)
+            
+            self.map.addAnnotation(newBreadCrumb)
+        })
+    }
     override func viewWillAppear(_ animated: Bool) {
         
         // Pull settings saved in UserDefualts and store in local constants

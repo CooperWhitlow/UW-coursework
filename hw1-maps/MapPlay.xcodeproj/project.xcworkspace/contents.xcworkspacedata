@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:hw1-maps.xcodeproj">
+      location = "self:/Users/cooper/iOS/cwhitlow/hw1-maps/MapPlay.xcodeproj">
    </FileRef>
 </Workspace>
