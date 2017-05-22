@@ -12,6 +12,7 @@ import CoreLocation
 
 class MapDelegate: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
     
+    @IBOutlet weak var locationSwitch: UISwitch!
     @IBOutlet weak var toggleTrackingButton: UIButton!
     @IBOutlet weak var map: MKMapView!
     
@@ -38,14 +39,44 @@ class MapDelegate: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
 
     }
     
-    //request location auth a
+    //request location tracking authorization
     func mapViewWillStartLocatingUser(_ mapView: MKMapView) {
        
-        if CLLocationManager.authorizationStatus() == .notDetermined {
-            locationManager.requestWhenInUseAuthorization()
+        let locationAuthoriationStatus = CLLocationManager.authorizationStatus()
+        
+        switch locationAuthoriationStatus {
+            
+            case .notDetermined:
+                locationManager.requestWhenInUseAuthorization()
+            
+            case .denied:
+                debugPrint("user denied location tracking")
+                locationSwitch.isOn = false
+                
+                let requestAlert = UIAlertController(title: "Oops", message: "This feature requires location to be enabled.", preferredStyle: UIAlertControllerStyle.alert)
+                
+                requestAlert.addAction(UIAlertAction(title: "Go to settings...", style: UIAlertActionStyle.cancel, handler: { (action: UIAlertAction) in
+                    
+                    let settingsPath = UIApplicationOpenSettingsURLString
+                    let settingsURL = URL(string: settingsPath)!
+                    UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
+                    
+                }))
+                
+                UIApplication.shared.keyWindow?.rootViewController?.present(requestAlert, animated: false, completion: nil) // I copy pasted this...have no idea how it makes UIViewController to present the alert, nor if this is a bad practice
+                
+            
+            
+            case .authorizedWhenInUse:
+                debugPrint("location authorization already received from user")
+            
+            default:
+                debugPrint("location auth error or resitricted by parental controls")
         }
+        
         locationManager.delegate = self
-        locationManager.startUpdatingLocation()
+        //locationManager.startUpdatingLocation()
+        //locationManager.stopUpdatingLocation()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = 5.0
     }
