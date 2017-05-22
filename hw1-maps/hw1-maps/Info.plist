@@ -27,11 +27,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>ditto</string>
-	<key>NSLocationUsageDescription</key>
-	<string>big brother tool</string>
+	<string>location is needed to drop accurate bread crumbs</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>so i can big brother you</string>
+	<string>location is needed to drop accurate bread crumbs</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

@@ -42,12 +42,17 @@ class MapDelegate: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
     //request location tracking authorization
     func mapViewWillStartLocatingUser(_ mapView: MKMapView) {
        
-        let locationAuthoriationStatus = CLLocationManager.authorizationStatus()
+        locationManager.delegate = self
+        locationManager.startUpdatingLocation()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.distanceFilter = 0.1 // in meters
         
+        let locationAuthoriationStatus = CLLocationManager.authorizationStatus()
+
         switch locationAuthoriationStatus {
             
             case .notDetermined:
-                locationManager.requestWhenInUseAuthorization()
+                locationManager.requestAlwaysAuthorization()
             
             case .denied:
                 debugPrint("user denied location tracking")
@@ -64,8 +69,6 @@ class MapDelegate: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
                 }))
                 
                 UIApplication.shared.keyWindow?.rootViewController?.present(requestAlert, animated: false, completion: nil) // I copy pasted this...have no idea how it makes UIViewController to present the alert, nor if this is a bad practice
-                
-            
             
             case .authorizedWhenInUse:
                 debugPrint("location authorization already received from user")
@@ -73,12 +76,6 @@ class MapDelegate: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
             default:
                 debugPrint("location auth error or resitricted by parental controls")
         }
-        
-        locationManager.delegate = self
-        //locationManager.startUpdatingLocation()
-        //locationManager.stopUpdatingLocation()
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.distanceFilter = 5.0
     }
     
     // method is called every time the user's location changes >= the locationManager.distanceFilter value. If the user has enabled tracking, the method will drop a pin at the current location and add it to an array saved on disk.

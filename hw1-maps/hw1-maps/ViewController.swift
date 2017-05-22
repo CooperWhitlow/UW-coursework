@@ -54,7 +54,17 @@ class ViewController: UIViewController {
         locationSwitch.isOn = locationSwitchSetting
         toggleTrackingButton.isSelected = trackButtonSetting
         
+        if let delegate = map.delegate as? MapDelegate {
+            delegate.locationManager.startUpdatingLocation()
+        }
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        if let delegate = map.delegate as? MapDelegate {
+            delegate.locationManager.stopUpdatingLocation()
+        }
+    }
+    
     
     // method used by the segmented controller to change the map type
     func updateMapType(index: Int) {
