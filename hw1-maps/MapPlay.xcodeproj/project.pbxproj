@@ -54,6 +54,7 @@
 		1E25131D1EAAC42200DEF523 /* MapPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPreferences.swift; sourceTree = "<group>"; };
 		1E25131F1EAB256F00DEF523 /* MapDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDelegate.swift; sourceTree = "<group>"; };
 		1E2513221EAB98DF00DEF523 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1E48F3DC1ED29EEF00EC7ADA /* MapPlay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MapPlay.entitlements; sourceTree = "<group>"; };
 		1E95875D1EC5434800328C23 /* BreadCrumb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BreadCrumb.swift; path = ../BreadCrumb.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,6 +87,7 @@
 		1E2512E31EAAB38E00DEF523 = {
 			isa = PBXGroup;
 			children = (
+				1E48F3DC1ED29EEF00EC7ADA /* MapPlay.entitlements */,
 				1E2512EE1EAAB38E00DEF523 /* hw1-maps */,
 				1E2513031EAAB38E00DEF523 /* hw1-mapsTests */,
 				1E25130E1EAAB38E00DEF523 /* hw1-mapsUITests */,
@@ -216,6 +218,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = Y3WUDUNE33;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					1E2512FF1EAAB38E00DEF523 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -437,6 +444,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MapPlay.entitlements;
 				DEVELOPMENT_TEAM = Y3WUDUNE33;
 				INFOPLIST_FILE = "hw1-maps/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -450,6 +458,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MapPlay.entitlements;
 				DEVELOPMENT_TEAM = Y3WUDUNE33;
 				INFOPLIST_FILE = "hw1-maps/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

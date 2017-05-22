@@ -21,16 +21,29 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         // Pull settings saved in UserDefualts and store in local constants
-        let mapIndex = UserDefaults.standard.integer(forKey: "mapType")
         let latitude = CLLocationDegrees(UserDefaults.standard.integer(forKey: "defaultLatitude"))
         let longitude = CLLocationDegrees(UserDefaults.standard.integer(forKey: "defaultLongitude"))
         let latDelta = CLLocationDegrees(UserDefaults.standard.integer(forKey: "defaultLatDelta"))
         let longDelta = CLLocationDegrees(UserDefaults.standard.integer(forKey: "defaultLongDelta"))
-        let trafficSwitchSetting = UserDefaults.standard.bool(forKey: "defaultTrafficSetting")
-        let locationSwitchSetting = UserDefaults.standard.bool(forKey: "defaultLocationSetting")
-        let trackButtonSetting = UserDefaults.standard.bool(forKey: "defaultTrackingSetting")
+        var mapIndex = UserDefaults.standard.integer(forKey: "mapType")
+        var trafficSwitchSetting = UserDefaults.standard.bool(forKey: "defaultTrafficSetting")
+        var locationSwitchSetting = UserDefaults.standard.bool(forKey: "defaultLocationSetting")
+        var trackButtonSetting = UserDefaults.standard.bool(forKey: "defaultTrackingSetting")
 
-
+        // Check iCould for UI state changes from other devices and overwrite local (ie outdated) states
+        if let cloudMapIndex = NSUbiquitousKeyValueStore.default().object(forKey: "mapType") {
+            mapIndex = cloudMapIndex as! Int
+        }
+        if let cloudTrafficSwitchSetting = NSUbiquitousKeyValueStore.default().object(forKey: "defaultTrafficSetting") {
+            trafficSwitchSetting = cloudTrafficSwitchSetting as! Bool
+        }
+        if let cloudLocationSwitchSetting = NSUbiquitousKeyValueStore.default().object(forKey: "defaultLocationSetting") {
+            locationSwitchSetting = cloudLocationSwitchSetting as! Bool
+        }
+        if let cloudTrackButtonSetting = NSUbiquitousKeyValueStore.default().object(forKey: "defaultTrackingSetting") {
+            trackButtonSetting = cloudTrackButtonSetting as! Bool
+        }
+        
         // Define last map position and index
         let coordinates = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         let span = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: longDelta)
@@ -65,7 +78,6 @@ class ViewController: UIViewController {
         }
     }
     
-    
     // method used by the segmented controller to change the map type
     func updateMapType(index: Int) {
         switch index {
@@ -80,23 +92,27 @@ class ViewController: UIViewController {
         }
     }
     
-    // update the map type and save state in User Defaults
+    // update the map type and save state in User Defaults + iCloud
         @IBAction func updateSegmentIndex(_ sender: UISegmentedControl) {
         updateMapType(index: sender.selectedSegmentIndex)
         UserDefaults.standard.set(sender.selectedSegmentIndex, forKey:"mapType")
+        NSUbiquitousKeyValueStore().set(sender.selectedSegmentIndex, forKey: "mapType")
+        NSUbiquitousKeyValueStore().synchronize()
     }
     
-    // toggle location display and save  state in User Defaults
+    // toggle location display and save  state in User Defaults + iCloud
     @IBAction func toggleShowsLocation(_ sender: UISwitch) {
         debugPrint("Changing location   from \(map.showsUserLocation)...")
         let currentState = map.showsUserLocation
         let newState = !currentState
         map.showsUserLocation = newState
         UserDefaults.standard.set(newState, forKey:"defaultLocationSetting")
+        NSUbiquitousKeyValueStore().set(newState, forKey: "defaultLocationSetting")
+        NSUbiquitousKeyValueStore().synchronize()
         debugPrint("...to \(map.showsUserLocation)")
     }
     
-    // toggle traffic overlay and save state in User Defaults
+    // toggle traffic overlay and save state in User Defaults + iCloud
     @IBAction func toggleShowsTraffic(_ sender: UISwitch) {
         debugPrint("Changing traffic display from \(map.showsTraffic)...")
         let currentState = map.showsTraffic
@@ -104,14 +120,18 @@ class ViewController: UIViewController {
         map.showsTraffic = newState
         debugPrint("...to \(map.showsTraffic)")
         UserDefaults.standard.set(newState, forKey:"defaultTrafficSetting")
+        NSUbiquitousKeyValueStore().set(newState, forKey: "defaultTrafficSetting")
+        NSUbiquitousKeyValueStore().synchronize()
     }
     
-    // toggle automatic pin drops (at distances interval equal to LocationManager.distanceFilter) and save state in User Defaults
+    // toggle automatic pin drops (at distances interval equal to LocationManager.distanceFilter) and save state in User Defaults + iCloud
     @IBAction func toggleTrackingButton(_ sender: Any) {
         let currentState = toggleTrackingButton.isSelected
         let newState = !currentState
         toggleTrackingButton.isSelected = newState
         UserDefaults.standard.set(newState, forKey: "defaultTrackingSetting")
+        NSUbiquitousKeyValueStore().set(newState, forKey: "defaultTrackingSetting")
+        NSUbiquitousKeyValueStore().synchronize()
     }
 
     // Delete all map annotations on button tap
