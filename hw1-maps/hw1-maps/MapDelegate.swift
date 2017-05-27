@@ -57,7 +57,7 @@ class MapDelegate: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
             case .denied:
                 debugPrint("user denied location tracking")
                 locationSwitch.isOn = false
-                
+                locationManager.requestAlwaysAuthorization()
                 let requestAlert = UIAlertController(title: "Oops", message: "This feature requires location to be enabled.", preferredStyle: UIAlertControllerStyle.alert)
                 
                 requestAlert.addAction(UIAlertAction(title: "Go to settings...", style: UIAlertActionStyle.cancel, handler: { (action: UIAlertAction) in
