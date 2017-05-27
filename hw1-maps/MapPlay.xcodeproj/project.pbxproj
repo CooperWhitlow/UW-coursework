@@ -54,6 +54,7 @@
 		1E25131D1EAAC42200DEF523 /* MapPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPreferences.swift; sourceTree = "<group>"; };
 		1E25131F1EAB256F00DEF523 /* MapDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDelegate.swift; sourceTree = "<group>"; };
 		1E2513221EAB98DF00DEF523 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1E48F3DC1ED29EEF00EC7ADA /* MapPlay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MapPlay.entitlements; sourceTree = "<group>"; };
 		1E95875D1EC5434800328C23 /* BreadCrumb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BreadCrumb.swift; path = ../BreadCrumb.swift; sourceTree = "<group>"; };
 		1EE1020F1ED0BC22008615A9 /* MapPlay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MapPlay.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */

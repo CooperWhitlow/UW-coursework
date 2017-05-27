@@ -25,6 +25,7 @@ class MapPreferences {
         ]
         
         UserDefaults.standard.register(defaults: defaultsDictionary)
+        NSUbiquitousKeyValueStore.default()
         
     }
 }

@@ -130,6 +130,8 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <customObject id="59Q-5t-eim" customClass="MapDelegate" customModule="MapPlay" customModuleProvider="target">
                     <connections>
+                        <outlet property="locationSwitch" destination="esN-1w-sO9" id="t1l-Ao-VzE"/>
+                        <outlet property="map" destination="JAU-xE-ecV" id="kfB-sc-0d9"/>
                         <outlet property="toggleTrackingButton" destination="0xv-dF-MzV" id="WjF-wq-Uq1"/>
                     </connections>
                 </customObject>
