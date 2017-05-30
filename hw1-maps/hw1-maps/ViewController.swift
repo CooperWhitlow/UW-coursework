@@ -19,7 +19,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var toggleTrackingButton: UIButton!
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        debugPrint("viewWillAppear called")
+
         // Pull settings saved in UserDefualts and store in local constants
         let latitude = CLLocationDegrees(UserDefaults.standard.integer(forKey: "defaultLatitude"))
         let longitude = CLLocationDegrees(UserDefaults.standard.integer(forKey: "defaultLongitude"))
@@ -67,16 +68,8 @@ class ViewController: UIViewController {
         locationSwitch.isOn = locationSwitchSetting
         toggleTrackingButton.isSelected = trackButtonSetting
         
-        if let delegate = map.delegate as? MapDelegate {
-            delegate.locationManager.startUpdatingLocation()
-        }
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        if let delegate = map.delegate as? MapDelegate {
-            delegate.locationManager.stopUpdatingLocation()
-        }
-    }
     
     // method used by the segmented controller to change the map type
     func updateMapType(index: Int) {
