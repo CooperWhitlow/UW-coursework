@@ -46,45 +46,54 @@ class MapDelegate: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
         locationManager.startUpdatingLocation()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = 0.1 // in meters
+    
+        let locationAuthorizationStatus = CLLocationManager.authorizationStatus()
         
-        let locationAuthoriationStatus = CLLocationManager.authorizationStatus()
-
-        switch locationAuthoriationStatus {
+        let requestAlert = UIAlertController(title: "Oops", message: "This feature requires location to be enabled.", preferredStyle: UIAlertControllerStyle.alert)
+        
+        requestAlert.addAction(UIAlertAction(title: "Go to settings...", style: UIAlertActionStyle.cancel, handler: { (action: UIAlertAction) in
+            
+            let settingsPath = UIApplicationOpenSettingsURLString
+            let settingsURL = URL(string: settingsPath)!
+            UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
+            
+        }))
+        
+        switch locationAuthorizationStatus {
             
             case .notDetermined:
                 locationManager.requestAlwaysAuthorization()
+                let latestLocationAuthorizationStatus = CLLocationManager.authorizationStatus()
+                debugPrint(latestLocationAuthorizationStatus)
+                if latestLocationAuthorizationStatus != .authorizedAlways {
+                    locationSwitch.isOn = false
+                    UIApplication.shared.keyWindow?.rootViewController?.present(requestAlert, animated: false, completion: nil) // I copy pasted this...have no idea how it makes UIViewController to present the alert, nor if this is a bad practice
+                }
             
             case .denied:
                 debugPrint("user denied location tracking")
+                
                 locationSwitch.isOn = false
-                locationManager.requestAlwaysAuthorization()
-                let requestAlert = UIAlertController(title: "Oops", message: "This feature requires location to be enabled.", preferredStyle: UIAlertControllerStyle.alert)
-                
-                requestAlert.addAction(UIAlertAction(title: "Go to settings...", style: UIAlertActionStyle.cancel, handler: { (action: UIAlertAction) in
-                    
-                    let settingsPath = UIApplicationOpenSettingsURLString
-                    let settingsURL = URL(string: settingsPath)!
-                    UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
-                    
-                }))
-                
                 UIApplication.shared.keyWindow?.rootViewController?.present(requestAlert, animated: false, completion: nil) // I copy pasted this...have no idea how it makes UIViewController to present the alert, nor if this is a bad practice
-            
-            case .authorizedWhenInUse:
+        
+            case .authorizedAlways:
                 debugPrint("location authorization already received from user")
             
             default:
                 debugPrint("location auth error or resitricted by parental controls")
         }
+        locationManager.requestAlwaysAuthorization()
     }
     
     // method is called every time the user's location changes >= the locationManager.distanceFilter value. If the user has enabled tracking, the method will drop a pin at the current location and add it to an array saved on disk.
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        if toggleTrackingButton.isSelected {
+        let appState = UIApplication.shared.applicationState
         
+
+        if toggleTrackingButton.isSelected && appState == .active {
             debugPrint("called didUpdateLocations...")
-        
+            
             let newLocationPin = MKPointAnnotation()
             let newUserLocation: CLLocation = locations[0]
         
@@ -104,7 +113,7 @@ class MapDelegate: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
             saveBreadCrumbsArray(breadCrumbsArray: breadCrumbs)
 
         } else {
-            debugPrint("Location changed but tracking is disabled by user")
+            debugPrint("Location changed but tracking is disabled")
         }
     }
 
